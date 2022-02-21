@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue';
 import replace from '@rollup/plugin-replace';
 
 const pwaOptions: Partial<VitePWAOptions> = {
-  mode: 'development',
   base: '/',
   includeAssets: ['favicon.svg'],
   manifest: {

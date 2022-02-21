@@ -8,9 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@saeris/vue-spinners": "^1.0.8",
     "@vueuse/core": "^7.6.2",
     "pinia": "^2.0.11",
     "vue": "^3.2.25",
+    "vue-loading-overlay": "^5.0.3",
     "vue3-qr-reader": "^1.0.0"
   },
   "devDependencies": {

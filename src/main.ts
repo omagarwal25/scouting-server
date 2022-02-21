@@ -2,6 +2,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import './index.css';
+
 // @ts-ignore
 import QrReader from 'vue3-qr-reader';
 import { createPinia } from 'pinia';

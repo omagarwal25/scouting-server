@@ -8,9 +8,9 @@ const pwaOptions: Partial<VitePWAOptions> = {
   includeAssets: ['favicon.svg'],
   filename: 'service-worker.js',
   manifest: {
-    name: 'PWA Router',
-    short_name: 'PWA Router',
-    theme_color: '#ffffff',
+    name: 'Scouting Server',
+    short_name: 'Scouting',
+    theme_color: '#93211a',
     icons: [
       {
         src: 'pwa-192x192.png',

@@ -2,9 +2,9 @@
   <div>
     <div class="mb">Qr Stream</div>
     <div class="center stream">
-      <!-- <qr-stream @decode="onDecode" class="mb">
+      <qr-stream @decode="onDecode" class="mb">
         <div style="color: red" class="frame"></div>
-      </qr-stream> -->
+      </qr-stream>
     </div>
     <div class="result">Result: {{ result }}</div>
   </div>

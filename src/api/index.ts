@@ -2,7 +2,7 @@ import { mande } from 'mande';
 import { Event } from '../models/event';
 import { ScheduledGame } from '../models/scheduledGame';
 
-const api = mande(`${`http://localhost:54963`}/.netlify/functions`);
+const api = mande(`${process.env.URL}/.netlify/functions`);
 
 export function getSchedule(params: { event: string; type: string }) {
   return api.get<ScheduledGame[]>('schedule', { query: params });

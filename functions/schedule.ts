@@ -23,6 +23,8 @@ export const handler: Handler = async (event, context) => {
     }
   );
 
+  console.log(await res.json());
+
   const data: Game[] = ((await res.json()) as Schedule).Schedule;
 
   return {

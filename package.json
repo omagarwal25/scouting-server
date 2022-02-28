@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@saeris/vue-spinners": "^1.0.8",
+    "@types/base-64": "^1.0.0",
     "@vueuse/core": "^7.6.2",
+    "base-64": "^1.0.0",
     "node-fetch": "^3.2.0",
     "pinia": "^2.0.11",
     "vue": "^3.2.25",
@@ -17,8 +19,8 @@
     "vue3-qr-reader": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^14.18.12",
     "@netlify/functions": "^1.0.0",
+    "@types/node": "^14.18.12",
     "@vitejs/plugin-vue": "^2.2.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.6",

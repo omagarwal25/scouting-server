@@ -3,7 +3,7 @@
   <div v-if="!schedule.selected" class="flex flex-col gap-5">
     <div class="flex items-center gap-4">
       <div class="flex flex-col gap-2">
-        <label for="matchTypeSelector">Team Number</label>
+        <label for="matchTypeSelector">Match Type</label>
         <select id="matchTypeSelector" class="p-2 rounded" v-model="matchType">
           <option value="qual">Qualifier</option>
           <option value="playoff">Playoff</option>

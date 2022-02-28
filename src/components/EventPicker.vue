@@ -45,6 +45,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useEventsStore } from '../stores/events';
+import { useScheduleStore } from '../stores/schedule';
 import GoBtn from './GoBtn.vue';
 
 const teamNumber = ref<number>();
@@ -52,6 +53,7 @@ const week = ref<number>();
 const selected = ref<string>();
 
 const events = useEventsStore();
+const scheduled = useScheduleStore();
 
 const onGo = async () => {
   await events.fetch({ team: teamNumber.value, week: week.value });
@@ -63,5 +65,6 @@ const onSelect = () => {
 
 const onChange = () => {
   events.selected = undefined;
+  scheduled.selected = undefined;
 };
 </script>

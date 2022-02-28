@@ -13,41 +13,41 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type Schedule struct {
-	Schedule []Game `json:"Schedule"`
+type Events struct {
+	Events     []Event `json:"Events"`
+	EventCount int     `json:"eventCount"`
 }
 
-type Game struct {
-	Field           string `json:"field"`
-	TournamentLevel string `json:"tournamentLevel"`
-	Description     string `json:"description"`
-	StartTime       string `json:"startTime"`
-	MatchNumber     int    `json:"matchNumber"`
-	Teams           []Team `json:"teams"`
-}
-
-type Team struct {
-	TeamNumber int    `json:"teamNumber"`
-	Station    string `json:"station"`
-	Surrogate  bool   `json:"surrogate"`
+type Event struct {
+	AllianceCount string        `json:"allianceCount"`
+	WeekNumber    int           `json:"weekNumber"`
+	Announcements []interface{} `json:"announcements"`
+	Code          string        `json:"code"`
+	DivisionCode  string        `json:"divisionCode"`
+	Name          string        `json:"name"`
+	Type          string        `json:"type"`
+	DistrictCode  string        `json:"districtCode"`
+	Venue         string        `json:"venue"`
+	City          string        `json:"city"`
+	Stateprov     string        `json:"stateprov"`
+	Country       string        `json:"country"`
+	DateStart     string        `json:"dateStart"`
+	DateEnd       string        `json:"dateEnd"`
+	Address       string        `json:"address"`
+	Website       string        `json:"website"`
+	Webcasts      []string      `json:"webcasts"`
+	Timezone      string        `json:"timezone"`
 }
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("Req:", request.QueryStringParameters)
 
 	// makes sure the params are all valid for the FRC api
-	event := request.QueryStringParameters["event"]
-	eventType := request.QueryStringParameters["type"]
-
-	if event == "" || eventType == "" {
-		return &events.APIGatewayProxyResponse{
-			StatusCode: 400,
-			Body:       "Invalid Params",
-		}, nil
-	}
+	week := request.QueryStringParameters["week"]
+	team := request.QueryStringParameters["team"]
 
 	client := &http.Client{}
-	url := fmt.Sprintf("https://frc-api.firstinspires.org/v3.0/%d/schedule/%s", time.Now().Year(), event)
+	url := fmt.Sprintf("https://frc-api.firstinspires.org/v3.0/%d/events", time.Now().Year())
 	req, err := http.NewRequest("GET", url, nil)
 
 	if err != nil {
@@ -55,7 +55,15 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	}
 
 	q := req.URL.Query()
-	q.Add("tournamentLevel", eventType)
+
+	// generate the url based of the query params, im sure there is an easier way to do this
+	if week != "" {
+		q.Add("weekNumber", week)
+	}
+	if team != "" {
+		q.Add("teamNumber", team)
+	}
+
 	req.URL.RawQuery = q.Encode()
 
 	// make sure it returns a JSON and not a XML file
@@ -78,9 +86,9 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	// marshalls and then unmarshal it to remove the useless tags
 	// if this throws and error we now know that something is wrong with the api res, and pass that error forward
-	var scheduleStruct Schedule
+	var scheduleStruct Events
 	json.Unmarshal(bodyBytes, &scheduleStruct)
-	body, err := json.Marshal(scheduleStruct.Schedule)
+	body, err := json.Marshal(scheduleStruct.Events)
 
 	if err != nil {
 		return nil, err

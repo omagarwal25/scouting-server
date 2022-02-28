@@ -1,13 +1,10 @@
-export interface Schedule {
-  Schedule: Game[];
-}
-
-export interface Game {
-  field: Field;
-  tournamentLevel: TournamentLevel;
+export interface ScheduledGame {
   description: string;
+  level: null;
   startTime: string;
   matchNumber: number;
+  field: Field;
+  tournamentLevel: TournamentLevel;
   teams: Team[];
 }
 
@@ -31,5 +28,6 @@ export enum Station {
 }
 
 export enum TournamentLevel {
+  Qualification = 'Qualification',
   Playoff = 'Playoff',
 }

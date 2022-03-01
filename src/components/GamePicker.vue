@@ -4,7 +4,7 @@
     <div class="flex items-center gap-4">
       <div class="flex flex-col gap-2">
         <label for="matchTypeSelector">Match Type</label>
-        <select id="matchTypeSelector" class="p-2 rounded" v-model="matchType">
+        <select id="matchTypeSelector" class="rounded p-2" v-model="matchType">
           <option value="qual">Qualifier</option>
           <option value="playoff">Playoff</option>
         </select>
@@ -17,13 +17,13 @@
           {{ game.description }}
         </option>
       </select>
-      <button class="p-2 rounded bg-green-700 text-white" @click="onSelect">
+      <button class="rounded bg-green-700 p-2 text-white" @click="onSelect">
         Select
       </button>
     </div>
   </div>
   <div v-else class="flex items-center gap-2">
-    <button @click="onChange" class="rounded bg-blue-700 text-white p-2">
+    <button @click="onChange" class="rounded bg-blue-700 p-2 text-white">
       Game: {{ schedule.selected?.description }} (Change)
     </button>
   </div>

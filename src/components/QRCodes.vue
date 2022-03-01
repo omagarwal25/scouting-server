@@ -1,7 +1,7 @@
 <template>
   <div v-for="team in transformed?.teams" class="flex flex-col items-center">
     <h1
-      class="font-semibold text-xl"
+      class="text-xl font-semibold"
       :class="team.color === 'red' ? 'text-red-700' : 'text-blue-700'"
     >
       Team {{ team.number }}

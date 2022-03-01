@@ -1,3 +1,17 @@
+<template>
+  <div class="flex items-center gap-2">
+    <a
+      text="Download"
+      @click.prevent="onDownload"
+      class="rounded bg-green-700 p-2 text-white"
+    />
+
+    <button class="rounded bg-red-500 p-2 text-white" @click="onReset">
+      Reset
+    </button>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { useGamesStore } from '../stores/games';
 
@@ -15,16 +29,3 @@ const onReset = () => {
   games.reset();
 };
 </script>
-<template>
-  <div class="flex items-center gap-2">
-    <a
-      text="Download"
-      @click.prevent="onDownload"
-      class="p-2 bg-green-700 text-white rounded"
-    />
-
-    <button class="p-2 bg-red-500 text-white rounded" @click="onReset">
-      Reset
-    </button>
-  </div>
-</template>

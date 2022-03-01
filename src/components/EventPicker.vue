@@ -1,11 +1,11 @@
 <template>
-  <h1 class="font-semibold border-b">Select Event</h1>
+  <h1 class="border-b font-semibold">Select Event</h1>
   <div v-if="!events.selected" class="flex flex-col gap-2">
     <div class="flex items-center gap-4">
       <div class="flex flex-col gap-2">
         <label for="teamNumberPicker">Team Number</label>
         <input
-          class="border p-2 rounded"
+          class="rounded border p-2"
           id="teamNumberPicker"
           type="number"
           v-model="teamNumber"
@@ -15,7 +15,7 @@
       <div class="flex flex-col gap-2">
         <label for="weekPicker">Week Number</label>
         <input
-          class="border p-2 rounded"
+          class="rounded border p-2"
           id="weekPicker"
           type="number"
           v-model="week"
@@ -30,13 +30,13 @@
           {{ event.name }}
         </option>
       </select>
-      <button class="p-2 rounded bg-green-700 text-white" @click="onSelect">
+      <button class="rounded bg-green-700 p-2 text-white" @click="onSelect">
         Select
       </button>
     </div>
   </div>
   <div v-else class="flex items-center gap-2">
-    <button @click="onChange" class="rounded bg-blue-700 text-white p-2">
+    <button @click="onChange" class="rounded bg-blue-700 p-2 text-white">
       Event: {{ events.selected.name }} (Change)
     </button>
   </div>

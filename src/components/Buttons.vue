@@ -5,7 +5,7 @@
       Result:
       <code class="">{{ result }}</code>
     </h1>
-    <download-button />
+    <DownloadButton />
   </div>
   <div v-else>
     <loading v-model:active="isLoading" :can-cancel="false" is-full-page />

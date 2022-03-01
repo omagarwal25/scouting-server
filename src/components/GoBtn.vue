@@ -1,5 +1,5 @@
 <template>
-  <button class="p-2 bg-green-700 text-white rounded" @click="click">
+  <button class="rounded bg-green-700 p-2 text-white" @click="click">
     Go!
   </button>
 </template>

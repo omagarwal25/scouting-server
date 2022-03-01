@@ -1,11 +1,11 @@
 <template>
-  <div class="w-[500px] h-[500px]">
-    <qr-stream @decode="onDecode">
+  <div class="h-[500px] w-[500px]">
+    <QrStream @decode="onDecode">
       <div style="color: red" class="frame"></div>
-    </qr-stream>
+    </QrStream>
   </div>
-  <buttons :is-loading="isLoading" :result="result" :error="error" />
-  <game-table v-if="games.games.length !== 0" />
+  <Buttons :is-loading="isLoading" :result="result" :error="error" />
+  <GameTable v-if="games.games.length !== 0" />
 </template>
 
 <script lang="ts" setup>

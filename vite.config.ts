@@ -60,5 +60,6 @@ if (reload) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // @ts-ignore
   plugins: [vue(), VitePWA(pwaOptions), replace(replaceOptions)],
 });

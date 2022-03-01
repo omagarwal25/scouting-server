@@ -1,10 +1,10 @@
 <template>
-  <div class="p-2 flex flex-col items-center justify-center gap-5">
-    <scanner />
-    <div class="border-t flex flex-col items-center justify-center w-full">
-      <h1 class="font-bold text-2xl">Generate Codes</h1>
+  <div class="flex flex-col items-center justify-center gap-5 p-2">
+    <Scanner />
+    <div class="flex w-full flex-col items-center justify-center border-t">
+      <h1 class="text-2xl font-bold">Generate Codes</h1>
     </div>
-    <generator />
+    <Generator />
   </div>
 </template>
 

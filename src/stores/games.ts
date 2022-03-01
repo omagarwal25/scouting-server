@@ -1,8 +1,10 @@
 import { useStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
+import sha256 from 'crypto-js/sha256';
 
 interface Game {
   data: string;
+  hash: string;
   // exported: boolean;
 }
 
@@ -15,7 +17,11 @@ export const useGamesStore = defineStore('games', {
   // state: () => ({ count: 0 })
   actions: {
     add(game: string) {
-      this.games.push({ data: game });
+      this.games.push({ data: game, hash: sha256(game).toString() });
+    },
+
+    remove(game: string) {
+      this.games = this.games.filter((e) => e.hash !== game);
     },
 
     reset() {

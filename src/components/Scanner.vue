@@ -1,20 +1,21 @@
 <template>
   <div class="w-[500px] h-[500px]">
-    <qr-stream @decode="onDecode" class="mb">
+    <qr-stream @decode="onDecode">
       <div style="color: red" class="frame"></div>
     </qr-stream>
   </div>
   <buttons :is-loading="isLoading" :result="result" :error="error" />
+  <game-table v-if="games.games.length !== 0" />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 // @ts-ignore
 import { QrStream } from 'vue3-qr-reader';
 import { useGamesStore } from '../stores/games';
 import Buttons from '../components/Buttons.vue';
+import GameTable from './GameTable.vue';
 
 const games = useGamesStore();
 

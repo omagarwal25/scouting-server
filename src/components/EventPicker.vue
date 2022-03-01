@@ -61,6 +61,7 @@ const onGo = async () => {
 
 const onSelect = () => {
   events.selected = events.events.find((e) => e.name === selected.value);
+  scheduled.games = [];
 };
 
 const onChange = () => {

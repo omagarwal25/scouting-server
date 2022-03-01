@@ -6,10 +6,7 @@ import { getSchedule } from '~/api';
 export const useScheduleStore = defineStore('schedule', {
   state: () => ({
     games: useStorage<ScheduledGame[]>('scheduledGames', []),
-    selected: useStorage<ScheduledGame | undefined>(
-      'selectedScheduledGame',
-      undefined
-    ),
+    selected: useStorage<ScheduledGame | null>('selectedScheduledGame', null),
   }),
 
   // could also be defined as

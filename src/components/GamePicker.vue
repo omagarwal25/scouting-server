@@ -50,12 +50,11 @@ const onGo = () => {
 };
 
 const onSelect = () => {
-  schedule.selected = schedule.games.find(
-    (e) => e.description === selected.value
-  );
+  schedule.selected =
+    schedule.games.find((e) => e.description === selected.value) ?? null;
 };
 
 const onChange = () => {
-  schedule.selected = undefined;
+  schedule.selected = null;
 };
 </script>

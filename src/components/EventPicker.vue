@@ -60,12 +60,13 @@ const onGo = async () => {
 };
 
 const onSelect = () => {
-  events.selected = events.events.find((e) => e.name === selected.value);
+  events.selected =
+    events.events.find((e) => e.name === selected.value) ?? null;
   scheduled.games = [];
 };
 
 const onChange = () => {
-  events.selected = undefined;
-  scheduled.selected = undefined;
+  events.selected = null;
+  scheduled.selected = null;
 };
 </script>

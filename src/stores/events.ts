@@ -6,7 +6,7 @@ import { Event } from '~/models/event';
 export const useEventsStore = defineStore('events', {
   state: () => ({
     events: useStorage<Event[]>('events', []),
-    selected: useStorage<Event | undefined>('selectedEvent', undefined),
+    selected: useStorage<Event | null>('selectedEvent', null),
   }),
 
   // could also be defined as

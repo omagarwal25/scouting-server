@@ -44,8 +44,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useEventsStore } from '../stores/events';
-import { useScheduleStore } from '../stores/schedule';
+import { useEventsStore } from '~/stores/events';
+import { useScheduleStore } from '~/stores/schedule';
 import GoBtn from './GoBtn.vue';
 
 const teamNumber = ref<number>();

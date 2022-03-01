@@ -1,7 +1,7 @@
-import { ScheduledGame } from '../models/scheduledGame';
+import { ScheduledGame } from '~/models/scheduledGame';
 import { useStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
-import { getSchedule } from '../api';
+import { getSchedule } from '~/api';
 
 export const useScheduleStore = defineStore('schedule', {
   state: () => ({

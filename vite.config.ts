@@ -2,6 +2,7 @@ import { ManifestOptions, VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import replace from '@rollup/plugin-replace';
+import path from 'path';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   base: '/',
@@ -62,4 +63,9 @@ if (reload) {
 export default defineConfig({
   // @ts-ignore
   plugins: [vue(), VitePWA(pwaOptions), replace(replaceOptions)],
+  resolve: {
+    alias: {
+      '~/': `${path.resolve(__dirname, 'src')}/`,
+    },
+  },
 });

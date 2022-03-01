@@ -1,7 +1,7 @@
 import { useStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
-import { getEvents } from '../api';
-import { Event } from '../models/event';
+import { getEvents } from '~/api';
+import { Event } from '~/models/event';
 
 export const useEventsStore = defineStore('events', {
   state: () => ({

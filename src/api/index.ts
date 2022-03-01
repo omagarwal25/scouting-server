@@ -1,6 +1,6 @@
 import { mande } from 'mande';
-import { Event } from '../models/event';
-import { ScheduledGame } from '../models/scheduledGame';
+import { Event } from '~/models/event';
+import { ScheduledGame } from '~/models/scheduledGame';
 
 const api = mande(`/.netlify/functions`);
 
@@ -11,7 +11,7 @@ export function getSchedule(params: { event: string; type: string }) {
 export function getEvents({ team, week }: { team?: number; week?: number }) {
   const params: Record<string, string | number> = {};
 
-  if (team) {
+  if (team !== undefined) {
     params['team'] = team;
   }
 

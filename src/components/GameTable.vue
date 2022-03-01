@@ -60,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { useGamesStore } from '../stores/games';
+import { useGamesStore } from '~/stores/games';
 
 const games = useGamesStore();
 

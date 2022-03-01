@@ -31,8 +31,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useEventsStore } from '../stores/events';
-import { useScheduleStore } from '../stores/schedule';
+import { useEventsStore } from '~/stores/events';
+import { useScheduleStore } from '~/stores/schedule';
 import GoBtn from './GoBtn.vue';
 
 const matchType = ref<'qual' | 'playoff'>('qual');

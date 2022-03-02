@@ -8,7 +8,7 @@
     </h1>
     <QrcodeVue
       :value="`${transformed?.number},${transformed?.type},${team.scoutId},${team.color},${team.number}`"
-      :size="300"
+      :size="500"
     />
   </FlexVert>
 </template>

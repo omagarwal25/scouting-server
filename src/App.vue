@@ -1,9 +1,7 @@
 <template>
   <FlexVert class="items-center justify-center gap-5 p-2">
     <Scanner />
-    <FlexHorz class="w-full items-center justify-center border-t">
-      <h1 class="text-2xl font-bold">Generate Codes</h1>
-    </FlexHorz>
+    <h1 class="border-t text-2xl font-bold">Generate Codes</h1>
     <Generator />
   </FlexVert>
 </template>

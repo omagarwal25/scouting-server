@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import { useEventsStore } from '~/stores/events';
 import { useScheduleStore } from '~/stores/schedule';
-import EventPicker from './EventPicker.vue';
-import GamePicker from './GamePicker.vue';
+import EventPicker from './event/EventPicker.vue';
+import GamePicker from './game/GamePicker.vue';
 import QRCodes from './QRCodes.vue';
 
 const events = useEventsStore();

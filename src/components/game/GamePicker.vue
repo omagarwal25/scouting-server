@@ -1,39 +1,41 @@
 <template>
   <h1 class="border-b font-semibold">Select Game</h1>
-  <div v-if="!schedule.selected" class="flex flex-col gap-5">
-    <div class="flex items-center gap-4">
-      <div class="flex flex-col gap-2">
+  <VertFlex v-if="!schedule.selected" css="gap-5">
+    <HorzFlex>
+      <VertFlex>
         <label for="matchTypeSelector">Match Type</label>
         <select id="matchTypeSelector" class="rounded p-2" v-model="matchType">
           <option value="qual">Qualifier</option>
           <option value="playoff">Playoff</option>
         </select>
-      </div>
+      </VertFlex>
       <GoBtn @click="onGo" />
-    </div>
-    <div class="flex items-center gap-2">
+    </HorzFlex>
+    <HorzFlex>
       <select class="rounded p-2" v-model="selected">
+        <option disabled value="">Nothing Selected</option>
         <option v-for="game in schedule.games" :key="game.matchNumber">
           {{ game.description }}
         </option>
       </select>
-      <button class="rounded bg-green-700 p-2 text-white" @click="onSelect">
-        Select
-      </button>
-    </div>
-  </div>
-  <div v-else class="flex items-center gap-2">
-    <button @click="onChange" class="rounded bg-blue-700 p-2 text-white">
+      <Button color="bg-green-700" @click="onSelect">Select</Button>
+    </HorzFlex>
+  </VertFlex>
+  <HorzFlex v-else>
+    <Button @click="onChange" color="bg-blue-700">
       Game: {{ schedule.selected?.description }} (Change)
-    </button>
-  </div>
+    </Button>
+  </HorzFlex>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useEventsStore } from '~/stores/events';
 import { useScheduleStore } from '~/stores/schedule';
-import GoBtn from './GoBtn.vue';
+import GoBtn from '~/components/util/GoBtn.vue';
+import Button from '~/components/util/Button.vue';
+import HorzFlex from '~/components/util/FlexHorz.vue';
+import VertFlex from '~/components/util/FlexVert.vue';
 
 const matchType = ref<'qual' | 'playoff'>('qual');
 const selected = ref<string>();

@@ -1,19 +1,18 @@
 <template>
-  <div class="flex items-center gap-2">
+  <HorzFlex>
     <a
       text="Download"
       @click.prevent="onDownload"
       class="rounded bg-green-700 p-2 text-white"
     />
-
-    <button class="rounded bg-red-500 p-2 text-white" @click="onReset">
-      Reset
-    </button>
-  </div>
+    <Button color="bg-red-500" @click="onReset">Reset</Button>
+  </HorzFlex>
 </template>
 
 <script setup lang="ts">
+import Button from '~/components/util/Button.vue';
 import { useGamesStore } from '~/stores/games';
+import HorzFlex from '~/components/util/FlexHorz.vue';
 
 const games = useGamesStore();
 

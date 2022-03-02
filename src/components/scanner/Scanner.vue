@@ -14,8 +14,8 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 // @ts-ignore
 import { QrStream } from 'vue3-qr-reader';
 import { useGamesStore } from '~/stores/games';
-import Buttons from '~/components/Buttons.vue';
-import GameTable from './GameTable.vue';
+import Buttons from '~/components/scanner/ScannerDash.vue';
+import GameTable from '~/components/scanner/GameTable.vue';
 
 const games = useGamesStore();
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-for="team in transformed?.teams" class="flex flex-col items-center">
+  <FlexVert v-for="team in transformed?.teams" class="items-center">
     <h1
       class="text-xl font-semibold"
       :class="team.color === 'red' ? 'text-red-700' : 'text-blue-700'"
@@ -10,13 +10,14 @@
       :value="`${transformed?.number},${transformed?.type},${team.scoutId},${team.color},${team.number}`"
       :size="300"
     />
-  </div>
+  </FlexVert>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useScheduleStore } from '~/stores/schedule';
 import QrcodeVue from 'qrcode.vue';
+import FlexVert from './util/FlexVert.vue';
 
 const schedule = useScheduleStore();
 

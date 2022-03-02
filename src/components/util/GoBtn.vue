@@ -1,9 +1,8 @@
 <template>
-  <button class="rounded bg-green-700 p-2 text-white" @click="click">
-    Go!
-  </button>
+  <Button @click="click" color="bg-green-700">Go!</Button>
 </template>
 
 <script setup lang="ts">
+import Button from './Button.vue';
 const { click } = defineEmits<{ click: () => void }>();
 </script>

@@ -5,7 +5,14 @@
         <th
           scope="col"
           class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-          v-for="i in ['Team Number', 'Type', 'Match Number', 'Color', 'Scout']"
+          v-for="i in [
+            'Team Number',
+            'Type',
+            'Match Number',
+            'Color',
+            'Scout',
+            'Scout ID',
+          ]"
         >
           {{ i }}
         </th>
@@ -45,6 +52,11 @@
           class="whitespace-nowrap px-6 py-4 text-sm capitalize text-gray-500"
         >
           {{ game.data.split(',')[24] }}
+        </td>
+        <td
+          class="whitespace-nowrap px-6 py-4 text-sm capitalize text-gray-500"
+        >
+          {{ game.data.split(',')[20] }}
         </td>
         <td class="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
           <button

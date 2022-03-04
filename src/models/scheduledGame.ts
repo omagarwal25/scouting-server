@@ -18,14 +18,9 @@ export interface Team {
   surrogate: boolean;
 }
 
-export enum Station {
-  Blue1 = 'Blue1',
-  Blue2 = 'Blue2',
-  Blue3 = 'Blue3',
-  Red1 = 'Red1',
-  Red2 = 'Red2',
-  Red3 = 'Red3',
-}
+export type Color = 'Blue' | 'Red';
+export type StationNumber = 1 | 2 | 3;
+export type Station = `${Color}${StationNumber}`;
 
 export enum TournamentLevel {
   Qualification = 'Qualification',
